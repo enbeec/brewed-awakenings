@@ -6,8 +6,10 @@ const orders = getOrders()
 const employeeNameById = (id) => {
     let employee = dummies.employee
     for (const oneEmployee of employees) {
-        if (oneEmployee.id === id) {
+        if (oneEmployee.id === parseInt(id)) {
             employee = oneEmployee
+            // we found the employee, no need to keep searching
+            break
         }
     }
     return employee.name
@@ -23,13 +25,13 @@ document.addEventListener(
             let msg = `${employeeNameById(employeeId)} sold `
 
             for (const order of orders) {
-                if (order.employeeId === employeeId) {
+                if (order.employeeId === parseInt(employeeId)) {
                     sales += 1
                 }
             }
 
-            if (sales <= 0) { msg += "bupkis." }
-            else if (sales === 1) { msg += "a product." }
+            if (sales <= 0) { msg += `bupkis.` }
+            else if (sales === 1) { msg += `a product.` }
             else { msg += `${sales} products.` }
 
             window.alert(msg)
