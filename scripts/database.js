@@ -137,3 +137,16 @@ export const getOrders = () => {
     return [...database.orders]
 }
 
+export const dummies = {
+    employee: {
+        id: 0,
+        name: "_Unknown Employee_",
+        email: "",
+        hourlyRate: 0.00
+    },
+    product: {
+        id: 0,
+        name: "_Unknown Product_",
+        price: 0.00
+    }
+}
